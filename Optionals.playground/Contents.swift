@@ -48,3 +48,27 @@ func produceFullName(withFirstName firstName: String, middleName: String?, lastN
 
 produceFullName(withFirstName: "Jon", middleName: "Bon", lastName: "Jovi")
 produceFullName(withFirstName: "Mary", middleName: nil, lastName: "Doe")
+
+
+func fullName(firstName firstName:String?, lastName:String?) -> String {
+    switch (firstName == nil, lastName == nil) {
+    case (true, true): return "John Doe"
+    case (false, false):
+        if firstName == "James" && lastName == "Bond" {
+            return "Agent 007"
+        } else if firstName == "Arya" && lastName == "Stark"{
+            return "The girl has no name"
+        } else {
+            return "\(firstName!) \(lastName!)"
+        }
+    case (true, false): return "Mr. \(lastName!)"
+    case (false, true): return "\(firstName!)"
+    }
+}
+
+fullName(firstName: nil, lastName: nil)
+fullName(firstName: "James", lastName: "Bond")
+fullName(firstName: "Arya", lastName: "Stark")
+fullName(firstName: nil, lastName: "Porter")
+fullName(firstName: "Chris", lastName: "Webb")
+fullName(firstName: "Ian", lastName: nil)
